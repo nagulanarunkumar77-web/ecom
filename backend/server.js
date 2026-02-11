@@ -32,7 +32,7 @@ app.use((req, res) => {
 
 // Database
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_UR
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error(err));
 
