@@ -1,0 +1,88 @@
+
+/*import { useEffect, useState } from "react";
+import ProductCard from "../components/ProductCard";
+import API from "../services/api";
+
+function Products({ refreshCart }) {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    API.get("/products")
+      .then((res) => setProducts(res.data))
+      .catch((err) => console.error(err));
+  }, []);
+
+ 
+  const addToCart = async (product) => {
+    try {
+      await API.post("/cart/add", {
+        productId: product._id,
+        quantity: 1
+      });
+      refreshCart(); // 🔥 sync navbar
+      alert("Added to cart");
+    } catch (error) {
+      alert("Failed to add to cart");
+    }
+  };
+
+  return (
+    <div className="products-page">
+      <h1>Our Products</h1>
+
+      <div className="products-grid">
+        {products.map((product) => (
+          <ProductCard
+            key={product._id}
+            product={product}
+            addToCart={addToCart}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default Products;
+/*import ProductCard from "../components/ProductCard";
+
+function Products({ addToCart }) {
+  const products = [
+    {
+      id: 1,
+      name: "Cold Pressed Coconut Oil",
+      category: "Oil",
+      price: 450
+    },
+    {
+      id: 2,
+      name: "Cold Pressed Groundnut Oil",
+      category: "Oil",
+      price: 520
+    },
+    {
+      id: 3,
+      name: "Organic Brown Sugar",
+      category: "Sugar",
+      price: 180
+    }
+  ];
+
+  return (
+    <div className="products-page">
+      <h1>Our Products</h1>
+
+      <div className="products-grid">
+        {products.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            addToCart={addToCart}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default Products; */
