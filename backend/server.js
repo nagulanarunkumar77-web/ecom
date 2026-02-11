@@ -16,21 +16,21 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// API Routes
+// API routes
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/orders", orderRoutes);
 
-// 🔥 Serve React build
+// Serve static files
 app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-// Handle React routing (IMPORTANT)
-app.get("/*", (req, res) => {
+// React fallback route (Express 5 safe)
+app.use((req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
 });
 
-// Database connection
+// Database
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
