@@ -15,7 +15,7 @@ function Products({ refreshCart }) {
 
  
   const addToCart = async (product) => {
-    if(isAdmin)
+    if(!isAdmin)
     {
       try {
       await API.post("/cart/add", {
